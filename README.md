@@ -1,2 +1,9 @@
 # hdfs-demo
-Demo for HDFS upload and download file
+Demo for read and write file with hdfs.
+
+Technology stack:
+Springboot1
+Multiple thread
+MongoDb
+Hdfs
+
