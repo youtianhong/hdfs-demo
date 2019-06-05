@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="default_pattern" value="%date [%thread] %-5level %logger{20} - %msg%n" />
+    
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+      		<pattern>${default_pattern}</pattern>
+     		<charset>UTF-8</charset>
+   		</encoder>  
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/data/app/dmp/logs/dpp.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/data/app/dmp/logs/dpp.log.%d{yyyy-MM-dd}</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+      		<pattern>${default_pattern}</pattern>
+     		<charset>UTF-8</charset>
+   		</encoder>  
+    </appender>
+    
+    
+    <logger name="org.springframework">
+        <level value="WARN" />
+    </logger>
+
+    <logger name="com.ibatis">
+        <level value="WARN" />
+    </logger>
+
+    <logger name="java.sql">
+        <level value="WARN" />
+    </logger>
+    <logger name="net.rubyeye.xmemcached">
+        <level value="ERROR" />
+    </logger>
+    <logger name="com.google.code.yanf4j">
+        <level value="ERROR" />
+    </logger>
+    <logger name="org.apache.commons">
+        <level value="ERROR" />
+    </logger>
+    <logger name="org.springframework.jdbc.datasource.init">
+        <level value="DEBUG" />
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+    
+</configuration>

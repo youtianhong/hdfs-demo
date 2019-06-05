@@ -1,0 +1,60 @@
+server:
+  port: 18888  
+
+currentEnv: prod
+threadCount: 10
+
+spring:
+  profiles:
+  application:
+    name: DataPullingPlatform
+  active: prod
+  data:  
+    mongodb:
+      #uri: mongodb://DataPlatformUseR:xxxx@10.2.1.1:27017/xxx      
+      uri: mongodb://localhost:27017/myDb
+
+hdfs:
+  baseDir: /hdfsDir/
+  homeDir: E:\\source\\hadoop-common-2.2.0-bin-master\\
+  defaultFS: hdfs://10.10.10.10:9002
+  user: hdfs
+
+#hdfs:
+  #baseDir: /user/hive/warehouse/ad/adst.db/ad_data_platform/
+  #homeDir: /app/hadoop/hadoop/bin/hadoop
+  #defaultFS: hdfs://nswx
+  #nameservices: nswx
+  #namenodes: namenode671,namenode673
+  #rpc-address-namenode671: dp-hdwx-master1.wxxdc:8020
+  #rpc-address-namenode673: dp-hdwx-nn3.wxxdc:8020
+  #client_failover_proxy: org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider
+  #keytab_file: /usr/bin/kinit -kt /home/adst/adst.keytab
+  #keytab_file: /home/adst/adst.keytab
+  #kerberos_principal: adst@ABC.COM
+  #user: adst
+
+#update port 
+talkingData:
+  queryMatchResult:
+    url: http://1.1.1.1:8080/dmp-ad-frontend-server/frontend/get
+
+hotClound:
+  queryMatchResult:
+    url: http://1.1.1.1:18080/dmp-fec/fec/v1/ads/get/
+security:
+  basic:
+    enabled: false
+
+---
+spring:
+  profiles: prod
+  data:  
+    mongodb:
+      uri: mongodb://DataPlatformUseR:xxxx@1.1.1.2:27017/xxxx
+server:
+  port: 18888
+security:
+  basic:
+    enabled: false
+

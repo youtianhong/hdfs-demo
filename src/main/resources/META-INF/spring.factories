@@ -1,0 +1,3 @@
+# Application Listeners
+org.springframework.context.ApplicationListener=\
+com.dpp.config.LocationsSettingConfigFileApplicationListener
